@@ -1,3 +1,4 @@
+"use client";
 import Image from "next/image";
 import Link from "next/link";
 import styles from "../Styling/Navbar.module.css";
@@ -17,12 +18,12 @@ export default function Navbar() {
       </div>
 
       <div className={styles.navLinks}>
-        <Link href="#home" className={styles.navLink}>Home</Link>
-        <Link href="#skills" className={styles.navLink}>Skills</Link>
-        <Link href="#hackathon" className={styles.navLink}>Hackathon</Link>
-        <Link href="#projects" className={styles.navLink}>Projects</Link>
-        <Link href="#experience" className={styles.navLink}>Experience</Link>
-        <Link href="#contact" className={styles.navLink}>Contact</Link>
+        <Link href="/" className={styles.navLink}>Home</Link>
+        <Link href="/Skills" className={styles.navLink}>Skills</Link>
+        <Link href="/Hackathons" className={styles.navLink}>Hackathon</Link>
+        <Link href="/Projects" className={styles.navLink}>Projects</Link>
+        <Link href="/Experience" className={styles.navLink}>Experience</Link>
+        <Link href="/Contact" className={styles.navLink}>Contact</Link>
       </div>
     </nav>
   );
