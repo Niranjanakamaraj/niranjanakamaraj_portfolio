@@ -1,0 +1,195 @@
+.skillsMain {
+  width: 100%;
+  background: #bfbab5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 60px;
+  font-family: "Inter", sans-serif;
+}
+
+.headerSection {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.title {
+  margin-top: 3rem;
+  font-size: 32px;
+  font-weight: 700;
+  background: #3a3a3a;
+  color: white;
+  padding: 10px 24px;
+  border-radius: 4px;
+  display: inline-block;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.subtitle {
+  margin-top: 12px;
+  font-size: 28px;
+  font-weight: 500;
+  color: #111;
+  letter-spacing: 0.5px;
+}
+
+/* ===== CATEGORY BOX ===== */
+.category {
+  background: #f2f2f2;
+  width: 95%;
+  /* border: 2px solid #222; */
+  padding: 18px 20px 25px;
+  margin-top: 35px;
+  border-radius: 8px;
+}
+
+.categoryTitle {
+  width: 100%;
+  background: #3a3a3a;
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+  border-radius: 6px;
+  font-size: 25px;
+  font-weight: 700;
+  margin-bottom: 25px;
+}
+
+/* GRID (keeps layout identical but still responsive) */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 28px;
+  justify-items: center;
+}
+
+/* SKILL CARD (matches look from screenshot) */
+.skillCard {
+  background: #ffffff;
+  width: 130px;
+  height: 120px;
+  border: 2px solid #d5d5d5;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-top: 6px;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.skillCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
+}
+
+.skillName {
+  margin-top: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #222;
+}
+
+/* FOOTER */
+.footer {
+  color: rgb(0, 0, 0);
+  padding: 8px 22px;
+  border-top: #222222 solid 4px;
+  border-bottom: #222222 solid 4px;
+  font-size: 2.5rem;
+  font-weight: 600;
+  margin-top: 50px;
+}
+
+.category {
+  position: relative;
+  overflow: hidden; /* hides overflowing cards */
+}
+
+/* Make the inner grid a flex row for smooth horizontal scroll */
+.grid {
+  display: flex !important; /* override grid for scroll */
+  gap: 28px;
+  animation: scrollLeft 40s linear infinite;
+}
+
+/* Ensure cards don’t shrink */
+.grid > .skillCard {
+  flex-shrink: 0;
+}
+
+/* Duplicate cards automatically for seamless loop */
+.grid::after {
+  content: "";
+  display: inline-block;
+  width: 100%; /* placeholder for continuous scroll */
+}
+
+/* Whole split section */
+.splitCategory {
+  width: 95%;
+  display: flex;
+  gap: 25px;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-top: 40px;
+}
+
+/* Each block (left/right) */
+.splitBlock {
+  background: #f2f2f2;
+  border-radius: 8px;
+  padding: 18px 20px 25px;
+  overflow: hidden;
+}
+
+.splitBlock:first-child {
+  width: 65%;
+}
+
+.splitBlock:last-child {
+  width: 32.5%;
+}
+
+/* Scrolling row inside each block */
+.scrollRow {
+  display: flex;
+  gap: 25px;
+  align-items: center;
+  width: max-content !important;
+  animation: scrollLeft 40s linear infinite;
+}
+
+/* Cards inside split */
+.scrollRow > div {
+  flex: 0 0 auto;
+}
+
+/* Keyframes */
+@keyframes scrollLeft {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* RIGHT continuous scroll (works with the real duplicated DOM) */
+.scrollRight {
+  display: flex !important;
+  gap: 28px;
+  width: max-content;
+  will-change: transform;
+  animation: scrollRightLoop 70s linear infinite !important;
+}
+
+/* Start shifted left by half (show middle), then move to 0 — gives rightwards motion */
+@keyframes scrollRightLoop {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}

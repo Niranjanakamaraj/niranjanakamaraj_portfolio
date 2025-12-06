@@ -39,12 +39,12 @@
 }
 
 .navLink {
-  color:rgb(32, 13, 13);
+  color:#343434;
   font-size: 1.2rem; /* text-3xl */
   font-weight: bold;
   transition: color 0.3s;
 }
 
 .navLink:hover {
-  color: #6b7280; /* gray-500 */
+  color: #939995; /* gray-500 */
 }
