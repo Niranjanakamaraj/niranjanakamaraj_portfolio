@@ -1,49 +1,49 @@
 "use client";
 import Image from "next/image";
 import Navbar from "../components/Navbar";
-import styles from "../Styling/Home.module.css";
-export default function Home() {
+import styles from "../Styling/Contact.module.css";
+
+export default function Contact() {
   return (
-    <main id="home" className={styles.main}>
-    <Navbar />
-    <section className={styles.contactSection}>
+    <main className={styles.main}>
+      <Navbar />
 
-  <div className={styles.contactWrapper}>
+      <section className={styles.contactSection}>
+        <div className={styles.contactWrapper}>
 
-    {/* LEFT – PROFILE IMAGE */}
-    <div className={styles.contactImageBox}>
-      <img
-        src="/mnt/data/a953c0dd-5e61-4e42-afc6-7c02eaa89f84.png"
-        className={styles.contactImage}
-      />
-    </div>
+          {/* LEFT – PROFILE IMAGE */}
+          <div className={styles.contactImageBox}>
+            <img
+              src="/contact.jpg"
+              alt="Profile"
+              className={styles.contactImage}
+            />
+          </div>
 
-    {/* RIGHT – TEXT + SOCIALS + RESUME */}
-    <div className={styles.contactInfo}>
-      <h2 className={styles.contactTitle}>Reach out</h2>
+          {/* RIGHT – TEXT + FORM + SOCIALS */}
+          <div className={styles.contactInfo}>
+            <h3 className={styles.contactName}>Niranjana K</h3>
+            <p className={styles.contactMail}>niranjanakamaaraj03@gmail.com</p>
 
-      <h3 className={styles.contactName}>Niranjana K</h3>
-      <p className={styles.contactMail}>niranjanakamaaraj03@gmail.com</p>
+            <h4 className={styles.connectTitle}>LET’S CONNECT</h4>
+            <form className={styles.contactForm}>
+              <input type="text" placeholder="Name" className={styles.inputField} />
+              <input type="email" placeholder="Email" className={styles.inputField} />
+              <textarea placeholder="Message" className={styles.inputField}></textarea>
+              <button type="submit" className={styles.sendBtn}>Send &#9993;</button>
+            </form>
 
-      <div className={styles.resumeBox}>
-        <img src="/resume-icon.png" className={styles.resumeIcon} />
-        <a className={styles.resumeText}>Download<br />Resume</a>
-      </div>
+            <div className={styles.socialIcons}>
+              <img src="/linkedin.png" alt="LinkedIn" />
+              <img src="/github.png" alt="GitHub" />
+              <img src="/email.png" alt="Email" />
+            </div>
 
-      <div className={styles.socialBox}>
-        <p className={styles.socialTitle}>LET’S CONNECT</p>
+            <button className={styles.downloadBtn}>Download Resume</button>
+          </div>
 
-        <div className={styles.socialIcons}>
-          <img src="/linkedin.png" className={styles.socialIcon} />
-          <img src="/github.png" className={styles.socialIcon} />
-          <img src="/x.png" className={styles.socialIcon} />
         </div>
-      </div>
-
-    </div>
-
-  </div>
-</section>
-</main>
+      </section>
+    </main>
   );
 }

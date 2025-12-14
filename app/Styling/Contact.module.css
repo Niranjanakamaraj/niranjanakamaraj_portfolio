@@ -1,0 +1,101 @@
+.main {
+  font-family: 'Arial', sans-serif;
+}
+
+.contactSection {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 4rem 2rem;
+  background-color: #fff;
+}
+
+.contactWrapper {
+  display: flex;
+  max-width: 1200px;
+  width: 100%;
+  gap: 4rem;
+  align-items: center;
+}
+
+.contactImageBox {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.contactImage {
+  width: 100%;
+  max-width: 400px;
+  border-radius: 8px;
+}
+
+.contactInfo {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.contactName {
+  color: #000000;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.contactMail {
+  font-size: 1rem;
+  color: #000000;
+}
+
+.connectTitle {
+  color: #000000;
+  font-weight: bold;
+  margin-top: 1rem;
+}
+
+.contactForm {
+  color: #000000 !important;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.inputField {
+  border: none;
+  border-bottom: 1px solid #000;
+  padding: 0.5rem 0;
+  font-size: 1rem;
+  outline: none;
+}
+
+.sendBtn {
+  color: #000000;
+  align-self: flex-start;
+  background: none;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.socialIcons {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.socialIcons img {
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+}
+
+.downloadBtn {
+  margin-top: 1.5rem;
+  background-color: #000;
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  font-weight: bold;
+}

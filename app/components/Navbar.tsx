@@ -19,10 +19,10 @@ export default function Navbar() {
 
       <div className={styles.navLinks}>
         <Link href="/" className={styles.navLink}>Home</Link>
-        <Link href="/Skills" className={styles.navLink}>Skills</Link>
-        <Link href="/Hackathons" className={styles.navLink}>Hackathon</Link>
         <Link href="/Projects" className={styles.navLink}>Projects</Link>
+        <Link href="/Skills" className={styles.navLink}>Skills</Link>
         <Link href="/Experience" className={styles.navLink}>Experience</Link>
+        <Link href="/Hackathons" className={styles.navLink}>Hackathon</Link>
         <Link href="/Contact" className={styles.navLink}>Contact</Link>
       </div>
     </nav>
