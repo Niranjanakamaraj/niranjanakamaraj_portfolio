@@ -32,7 +32,8 @@ export default function Home() {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
-    async function loadPosts() {
+  async function loadPosts() {
+    try {
       const postsCFG = await fetchPosts("mycodeforgood2025.hashnode.dev");
       const postsAP = await fetchPosts("ap-police-hackathon.hashnode.dev");
 
@@ -42,10 +43,13 @@ export default function Home() {
       ];
 
       setPosts(combined);
+    } catch (err) {
+      console.error("Error fetching posts:", err);
     }
+  }
 
-    loadPosts();
-  }, []);
+  loadPosts();
+}, []);
 
   return (
     <main id="home" className={styles.main}>

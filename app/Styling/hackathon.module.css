@@ -1,0 +1,125 @@
+.main {
+  padding: 2rem;
+  font-family: 'Inter', sans-serif;
+  background-color: #333;
+}
+
+
+.headerSection {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.title {
+  margin-top: 3rem;
+  font-size: 32px;
+  font-weight: 700;
+  background: #ffffff;
+  color: #3a3a3a;
+  padding: 10px 24px;
+  border-radius: 4px;
+  display: inline-block;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.subtitle {
+  margin-top: 12px;
+  font-size: 28px;
+  font-weight: 500;
+  color: #ffffff;
+  letter-spacing: 0.5px;
+}
+
+.hackathonCard {
+  margin-top: 3rem;
+  border-radius: 1rem;
+  padding: 2rem;
+  margin-bottom: 3rem;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+}
+
+.cardPrimary {
+  background-color:#666361;
+  color:#ffffff !important;
+}
+
+.cardSecondary {
+  background-color: #ffffff;
+  color: #1a202c;
+}
+
+.hackathonWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.reverse {
+  flex-direction: row-reverse;
+}
+
+.hackathonImageBox {
+  flex: 1 1 400px;
+  text-align: center;
+}
+
+.hackathonImage {
+  max-width: 100%;
+  border-radius: 1rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.gitButton {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  background-color: #333;
+  color: #ffffff;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s ease-in-out;
+}
+
+.gitButton:hover {
+  background-color: #2c5282;
+  transform: translateY(-2px);
+}
+
+.hackathonInfo {
+  flex: 1 1 500px;
+}
+
+.hackathonInfo h3 {
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+}
+
+.hackathonInfo h4 {
+  font-size: 1.2rem;
+  margin-top: 1rem;
+  margin-bottom: 0.3rem;
+}
+
+.hackathonInfo p, .hackathonInfo ul {
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.hackathonInfo ul {
+  padding-left: 1.2rem;
+}
+
+@media (max-width: 900px) {
+  .hackathonWrapper {
+    flex-direction: column !important;
+  }
+  .hackathonImageBox, .hackathonInfo {
+    flex: 1 1 100%;
+  }
+  .reverse {
+    flex-direction: column !important;
+  }
+}
