@@ -1,17 +1,18 @@
 .container {
   padding: 5rem 2rem;
-  max-width:100vw;
+  max-width: 100vw;
   margin: 0 auto;
   text-align: center;
-  background-color:#bfbab5;
-
+  background-color: #ffffff;
+  font-size: 1rem;
+  color: #3a3a3a;
 }
 
 .heading {
   font-size: 2.5rem;
   font-weight: 800;
   border-radius: 4px;
-  background-color:#3a3a3a;
+  background-color: #3a3a3a;
   margin-bottom: 3rem;
   color: #ffffff;
   display: inline-block;
@@ -20,73 +21,116 @@
 
 .grid {
   display: grid;
-  width:100%;
-  grid-template-columns: repeat(4, 1fr); /* exactly 4 per row */
+  grid-template-columns: repeat(8, 1fr);
   gap: 2.5rem; /* space between cards */
   align-items: stretch;
   justify-items: center;
   align-items: center;
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+}
+
+.grid {
+  overflow: hidden;
+  width: 100%;
+}
+
+.grid {
+  display: flex; /* stack rows vertically */
+  flex-direction: column; /* vertical stacking */
+  gap: 2.5rem; /* spacing between rows */
+  overflow: hidden;
+  width: 100%;
+}
+
+.track {
+  display: flex; /* horizontal scrolling row */
+  width: max-content;
+  /* animation disabled - using JavaScript for seamless scroll */
 }
 
 .card {
-  height:45vh;
+  min-width: 250px; /* or your preferred width */
+  margin-right: 2rem;
+  transition: transform 0.3s ease;
+}
+
+.cardMeta {
+  padding: 1rem 1rem 1.6rem;
+  text-align: left;
+  font-weight: 550;
+}
+
+.cardTitle h3 {
   width: 100%;
-  background: #f8f8f8;
+  border-radius: 6px;
   overflow: hidden;
-  background:#3a3a3a;
-  border-radius:6px;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
   display: flex;
+  color: #3a3a3a !important;
   flex-direction: column;
-  transition: transform 0.2s, box-shadow 0.2s;
 }
 
 .card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(0,0,0,0.15);
 }
 
 .title {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: #fff;
-  height: 10vh;
-  background:#3a3a3a;
-  padding: 0.5rem;
-  font-size: 1.2rem;
+  height: auto;
+  color: #3a3a3a !important;
+  font-size: 2.1rem;
+  text-align: left;
   font-weight: 700;
-  text-transform: uppercase;
-  text-align: center;
+  text-align: left;
 }
 
 .videoWrapper {
   width: 100%;
-  height: 150px;
-  overflow: hidden;
 }
 
-.video, .card img {
+.videoWrapper video {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  height: 180px;
+  display: block;
+  border-radius: 2px;
 }
 
 .desc {
- color: #fff;
-  background:#3a3a3a;
   font-size: 1rem;
   line-height: 1.4;
+  font-size: 600;
+  color: #3a3a3a;
   padding: 0.8rem;
   text-align: center;
 }
+
+.explore {
+  background: none;
+  border: none;
+  padding: 0.1rem 0.4rem;
+  font-size: 1rem;
+  font-weight: 500;
+  border-radius: 4px;
+  background: #3a3a3a;
+  color: #ffffff;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.explore span {
+  font-size: 1.2rem;
+  line-height: 1;
+}
+
 .modalOverlay {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0,0,0,0.7);
+  background: rgba(0, 0, 0, 0.7);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -95,16 +139,16 @@
 
 .modalContent {
   position: relative;
-  background: #000;
+  background: #ffffff;
   padding: 1rem;
   border-radius: 8px;
-  max-width: 100%;
+  max-width: 50%;
   max-height: 100%;
 }
 
 .modalContent video {
-  width: 80%;
-  height:50%;
+  width: 100%;
+  height: 50%;
   border-radius: 5px;
 }
 

@@ -56,38 +56,52 @@ export default function Home() {
       <Navbar />
 
       {/* HERO SECTION */}
-      <section className={styles.heroSection}>
-        <div className={styles.profileContainer}>
-          <div className={styles.profileBorder}></div>
-          <Image
-            src="/profile.jpeg"
-            alt="Profile Photo"
-            width={300}
-            height={100}
-            className={styles.profileImage}
-          />
-        </div>
+<section className={styles.heroSection}>
+   <video
+    autoPlay
+    loop
+    muted
+    playsInline
+    className={styles.heroVideo}
+  >
+    <source src="/bg.mp4" type="video/mp4" />
+  </video>
+  <div className={styles.profileContainer}>
+    <div className={styles.profileBorder}></div>
+    <Image
+      src="/profile.jpeg"
+      alt="Profile Photo"
+      width={300}
+      height={100}
+      className={styles.profileImage}
+    />
+  </div>
 
-        <div className={styles.intro}>
-          <h1 className={styles.name}>Niranjana K</h1>
-          <div className={styles.role}>
-            <div id="flip">
-              <div>
-                <div>Web Developer</div>
-                <div>Web Designer</div>
-              </div>
-            </div>
-          </div>
-          <button className={styles.ctaButton}>Curious? Dive in</button>
+  <div className={styles.intro}>
+    <h1 className={styles.name}>Niranjana K</h1>
+
+    {/* Flipping Roles */}
+    <div className={styles.role}>
+      <div id="flip">
+        <div>
+          <div>Fullstack Developer</div>
+          <div>Frontend Developer</div>
+          <div>Web Developer</div>
         </div>
-      </section>
+      </div>
+    </div>
+
+    {/* Tagline */}
+    <p className={styles.tagline}>Breaking things to build it better.</p>
+  </div>
+</section>
 
       {/* PERSON SECTION */}
       <section className={styles.personSection}>
         <h1 className={styles.personHeading}>The Person <br /> & <br /> The Dev</h1>
         <div className={styles.personButtons}>
-          <button className={styles.personBtn}>Who I Am ?</button>
-          <button className={styles.personBtn}>What I Do</button>
+          <button className={styles.personBtn}>Who I Am ?  →</button>
+          <button className={styles.personBtn}>What I Do  →</button>
         </div>
       </section>
 
@@ -130,12 +144,25 @@ export default function Home() {
               >
                 <img src={coverImage} className={styles.blogImg} />
                 <h3 className={styles.blogHeading}>{post.title}</h3>
-                <p className={styles.blogDesc}>{post.brief}</p>
+                <p className={styles.blogDesc}>Read More &gt; </p>
               </a>
             );
           })}
         </div>
       </section>
+      {/* CONTACT CTA SECTION */}
+<section className={styles.contactCtaSection}>
+  <h2 className={styles.contactCtaTitle}>
+    Got a problem worth solving?
+  </h2>
+  <p className={styles.contactCtaDesc}>
+    I’m in. Let’s connect and create impactful solutions together.
+  </p>
+  <a href="/Contact" className={styles.contactCtaBtn}>
+    Get in Touch →
+  </a>
+</section>
+
     </main>
   );
 }

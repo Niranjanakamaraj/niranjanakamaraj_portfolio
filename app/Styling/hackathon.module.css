@@ -38,12 +38,12 @@
   box-shadow: 0 6px 15px rgba(0,0,0,0.1);
 }
 
-.cardPrimary {
-  background-color:#666361;
-  color:#ffffff !important;
+.cardSecondary {
+  background-color:#bfbab5;
+  color:#000000 !important;
 }
 
-.cardSecondary {
+.cardPrimary {
   background-color: #ffffff;
   color: #1a202c;
 }
