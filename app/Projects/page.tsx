@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState,useRef,useEffect } from "react";
 import Navbar from "../components/Navbar";
 import Styles from "../Styling/Projects.module.css";
 
@@ -44,9 +44,6 @@ const tools = [
     desc: "Validate color accessibility instantly. Design that reads well and passes standards",
     video: "/projects/ColorContrastTester.mp4",
   },
-
-  // 🚀 New tools start here
-
   {
     title: "BOOKBUDDY",
     desc: "Your reading accountability engine. Track progress, build habits, finish books",
@@ -108,39 +105,128 @@ const tools = [
     video: "/projects/Wi-Fi Dead Zone Mapper.mp4",
   },
 ];
+const rows = 3;
+const SPEEDS = [0.5, 0.35, 0.45];
+const cardsPerRow = Math.ceil(tools.length / rows);
 
 const Projects: React.FC = () => {
-  const [selectedVideo, setSelectedVideo] = useState<string | null>(null);
+  const [activeTool, setActiveTool] = useState<null | {
+    title: string;
+    desc: string;
+    video: string;
+  }>(null);
+const trackRefs = useRef<HTMLDivElement[]>([]);
+
+  useEffect(() => {
+  const tracks = trackRefs.current;
+  const widths: number[] = [];
+
+  const animate = () => {
+    tracks.forEach((track, i) => {
+      if (!track) return;
+
+      // ✅ Calculate width of the original set once
+      if (!widths[i] && track.children.length > 0) {
+        const originalSetLength = track.children.length / 2;
+        let width = 0;
+        for (let j = 0; j < originalSetLength; j++) {
+          const el = track.children[j] as HTMLElement;
+          // use bounding box for true rendered width
+          width += el.getBoundingClientRect().width;
+          // add your known spacing (margin-right: 2rem = 32px)
+          width += 32;
+          width += 40;
+        }
+        widths[i] = width;
+        console.log("Row", i, "original width:", widths[i]);
+      }
+
+      if (!track.dataset.offset) track.dataset.offset = "0";
+      let offset = parseFloat(track.dataset.offset);
+
+      // move left
+      offset -= SPEEDS[i];
+
+      const originalWidth = widths[i];
+
+      // ✅ Reset exactly when the first set has scrolled out
+      if (originalWidth && offset <= -originalWidth) {
+        offset = 0;
+      }
+
+      track.style.transform = `translateX(${offset}px)`;
+      track.dataset.offset = offset.toString();
+    });
+
+    requestAnimationFrame(animate);
+  };
+
+  requestAnimationFrame(animate);
+}, []);
 
   return (
     <section className={Styles.container}>
       <Navbar />
       <h2 className={Styles.heading}>Utility Tools</h2>
+
       <div className={Styles.grid}>
-        {tools.map((tool, idx) => (
-          <div
-            key={idx}
-            className={Styles.card}
-            onClick={() => setSelectedVideo(tool.video)}
-            style={{ cursor: "pointer" }}
-          >
-            <div className={Styles.title}>{tool.title}</div>
+  {Array.from({ length: rows }).map((_, rowIdx) => (
+    <div
+      ref={(el) => {
+        if (el) trackRefs.current[rowIdx] = el;
+      }}
+      className={Styles.track}
+      key={rowIdx}
+    >
+      {tools
+        .slice(rowIdx * cardsPerRow, (rowIdx + 1) * cardsPerRow)
+        .concat(
+          tools.slice(rowIdx * cardsPerRow, (rowIdx + 1) * cardsPerRow) // duplicate for seamless loop
+        )
+        .map((tool, idx) => (
+          <div className={Styles.card} key={idx}>
             <div className={Styles.videoWrapper}>
               <video src={tool.video} autoPlay loop muted playsInline />
             </div>
-            <div className={Styles.desc}>{tool.desc}</div>
+            <div className={Styles.cardMeta}>
+              <h3 className={Styles.cardTitle}>{tool.title}</h3>
+              <button
+                className={Styles.explore}
+                onClick={() => setActiveTool(tool)}
+              >
+                Explore <span>&gt;</span>
+              </button>
+            </div>
           </div>
         ))}
-      </div>
-
-      {/* Lightbox Modal */}
-      {selectedVideo && (
-        <div className={Styles.modalOverlay} onClick={() => setSelectedVideo(null)}>
-          <div className={Styles.modalContent} onClick={(e) => e.stopPropagation()}>
-            <button className={Styles.closeButton} onClick={() => setSelectedVideo(null)}>
+    </div>
+  ))}
+</div>
+      {activeTool && (
+        <div
+          className={Styles.modalOverlay}
+          onClick={() => setActiveTool(null)}
+        >
+          <div
+            className={Styles.modalContent}
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              className={Styles.closeButton}
+              onClick={() => setActiveTool(null)}
+            >
               ×
             </button>
-            <video src={selectedVideo} autoPlay loop controls />
+
+            <div className={Styles.modalGrid}>
+              <div className={Styles.track}></div>
+              <video src={activeTool.video} autoPlay loop controls />
+
+              <div className={Styles.modalText}>
+                <h2>{activeTool.title}</h2>
+                <p>{activeTool.desc}</p>
+              </div>
+            </div>
           </div>
         </div>
       )}

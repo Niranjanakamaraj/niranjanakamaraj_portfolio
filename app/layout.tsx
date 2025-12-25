@@ -15,10 +15,10 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <header>
-          <nav>/* Navbar here */</nav>
+          <nav></nav>
         </header>
         <main>{children}</main>
-        <footer>/* Footer here */</footer>
+        <footer></footer>
       </body>
     </html>
   )
