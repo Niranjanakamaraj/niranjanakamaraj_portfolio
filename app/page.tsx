@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import Navbar from "./components/Navbar";
-import styles from "./styling/Home.module.css"; // Import CSS Module
+import styles from "./Styling/Home.module.css"; // Import CSS Module
 import { fetchPosts } from "../hashnodeClient";
 
 const testimonials = [
