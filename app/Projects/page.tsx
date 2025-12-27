@@ -3,10 +3,26 @@ import React, { useState,useRef,useEffect } from "react";
 import Navbar from "../components/Navbar";
 import Styles from "../Styling/Projects.module.css";
 const YOUTUBE_MAP: Record<string, string> = {
-  "QR CODE GENERATOR": "YOUTUBE_ID_1",
-  "WEBPAGE TRANSLATOR": "YOUTUBE_ID_2",
-  "RANDOM USER GENERATOR": "YOUTUBE_ID_3",
-  // add gradually, no rush
+  "QR CODE GENERATOR": "4BTND3whjg8",
+  "WEBPAGE TRANSLATOR": "mWe8x-aHdj0",
+  "RANDOM USER GENERATOR": "ncceeuezonM",
+  "SCREENSHOT TO TEXT CONVERTOR": "79euFO7UFsE",
+  "TEXT TO SPEECH CONVERTER": "_37io7WNYO4",
+  "URL SHORTENER": "Artt3fTUUHg", 
+  "PASSWORD STRENGTH CHECKER": "P3pX4bX5x5A",
+  "COLOR CONTRAST TESTER": "LbTLAGboeQU",
+  "BOOKBUDDY": "a1A_aaYuFUw",
+  "CRYPTOPEEK": "HlFUlVfy3OQ",
+  "CURRENCY CONVERTER": "z2v04pFb7E8",
+  "ENVIRONMENT DRIFT DETECTOR": "g3xBgxtmDdc",
+  "HABIT REMINDER": "L_RupvcEU8I",
+  "LOCAL NETWORK SCANNER": "xkgAJnoZjEo",
+  "LOCAL SEARCH ENGINE": "icbHXQh27jA",
+  "MESSAGE TONE ANALYZER": "OjIsyk_6arA",
+  "CHALLENGE TRACKER": "9V5Hed9dAr4",
+  "TASK SEQUENCER": "QFFvuW6OX5w",
+  "TREND SCOUT": "8yYV-9mp1h0",
+  "WIFI DEATH ZONE MAPPER": "5yOoKAL0GtY",
 };
 const tools = [
   {
@@ -191,8 +207,13 @@ const trackRefs = useRef<HTMLDivElement[]>([]);
         .map((tool, idx) => (
           <div className={Styles.card} key={idx}>
             <div className={Styles.videoWrapper}>
-              <video src={tool.video} autoPlay loop muted playsInline />
-            </div>
+  <img
+    onClick={() => setActiveTool(tool)}
+    src={`https://img.youtube.com/vi/${YOUTUBE_MAP[tool.title]}/hqdefault.jpg`}
+    alt={tool.title}
+    className={Styles.youtubePreview}
+  />
+</div>
             <div className={Styles.cardMeta}>
               <h3 className={Styles.cardTitle}>{tool.title}</h3>
               <button
