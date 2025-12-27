@@ -79,8 +79,8 @@ const combined = [
     <Image
       src="/pro.png"
       alt="Profile Photo"
-      width={400}
-      height={500}
+      width={350}
+      height={450}
       className={styles.profileImage}
     />
   </div>
