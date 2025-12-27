@@ -13,7 +13,7 @@ export default function Skills() {
     { img: "/Typescript.png", name: "Typescript" },
     { img: "/redux.svg", name: "Redux" },
     { img: "/Tailwind_CSS.png", name: "Tailwind" },
-    { img: "/bootstrap.png", name: "Bootstrap" },
+    { img: "/Bootstrap.png", name: "Bootstrap" },
     { img: "/html.png", name: "HTML" },
     { img: "/css.jpg", name: "CSS" },
   ];
@@ -33,7 +33,7 @@ export default function Skills() {
     { img: "/Firebase.png", name: "Firebase" },
     { img: "/wix.avif", name: "Wix Studio" },
     { img: "/Notion.png", name: "Notion" },
-    { img: "/jira.png", name: "Jira" },
+    { img: "/Jira.png", name: "Jira" },
     { img: "/Netlify.svg", name: "Netlify" },
     { img: "/Figma.png", name: "Figma" },
     { img: "/Canva.png", name: "Canva" },
@@ -79,9 +79,9 @@ export default function Skills() {
           <h2 className={styles.categoryTitle}>Programming Languages</h2>
           <div className={styles.scrollRow}>
             {duplicateArray([
-              { img: "/python.png", name: "Python" },
+              { img: "/Python.png", name: "Python" },
               { img: "/java.svg", name: "Java" },
-              { img: "/sql.svg", name: "SQL" },
+              { img: "/Sql.svg", name: "SQL" },
               { img: "/Javascript.png", name: "Javascript" },
             ], 8).map((item, i) => (
               <div key={i} className={styles.skillCard}>
