@@ -2,7 +2,12 @@
 import React, { useState,useRef,useEffect } from "react";
 import Navbar from "../components/Navbar";
 import Styles from "../Styling/Projects.module.css";
-
+const YOUTUBE_MAP: Record<string, string> = {
+  "QR CODE GENERATOR": "YOUTUBE_ID_1",
+  "WEBPAGE TRANSLATOR": "YOUTUBE_ID_2",
+  "RANDOM USER GENERATOR": "YOUTUBE_ID_3",
+  // add gradually, no rush
+};
 const tools = [
   {
     title: "QR CODE GENERATOR",
@@ -220,8 +225,17 @@ const trackRefs = useRef<HTMLDivElement[]>([]);
 
             <div className={Styles.modalGrid}>
               <div className={Styles.track}></div>
-              <video src={activeTool.video} autoPlay loop controls />
-
+              <div className={Styles.youtubeWrapper}>
+  <iframe
+    src={`https://www.youtube.com/embed/${
+      YOUTUBE_MAP[activeTool.title]
+    }?autoplay=1&rel=0`}
+    title={activeTool.title}
+    frameBorder="0"
+    allow="autoplay; encrypted-media; picture-in-picture"
+    allowFullScreen
+  />
+</div>
               <div className={Styles.modalText}>
                 <h2>{activeTool.title}</h2>
                 <p>{activeTool.desc}</p>
