@@ -20,7 +20,7 @@ export default function Hackathon() {
               className={styles.hackathonImage}
             />
             <a
-              href="https://gitplaceholder.com/jpmc"
+              href="https://github.com/bengaluru25/Team-71"
               target="_blank"
               className={styles.gitButton}
             >
@@ -58,7 +58,7 @@ export default function Hackathon() {
               className={styles.hackathonImage}
             />
             <a
-              href="https://gitplaceholder.com/shell"
+              href="https://github.com/Niranjanakamaraj/Shell-Shockers"
               target="_blank"
               className={styles.gitButton}
             >
@@ -94,7 +94,7 @@ export default function Hackathon() {
               className={styles.hackathonImage}
             />
             <a
-              href="https://gitplaceholder.com/ap-police"
+              href="https://github.com/Niranjanakamaraj/InvestigationAssistent"
               target="_blank"
               className={styles.gitButton}
             >
@@ -130,7 +130,7 @@ export default function Hackathon() {
               className={styles.hackathonImage}
             />
             <a
-              href="https://gitplaceholder.com/gdg"
+              href="https://github.com/Niranjanakamaraj/gdgsolutionchallenge"
               target="_blank"
               className={styles.gitButton}
             >

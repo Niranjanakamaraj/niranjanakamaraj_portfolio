@@ -30,6 +30,7 @@ const testimonials = [
 
 export default function Home() {
   const [posts, setPosts] = useState([]);
+  const [active, setActive] = useState<null | "who" | "what">(null);
 
   useEffect(() => {
   async function loadPosts() {
@@ -52,7 +53,7 @@ export default function Home() {
 }, []);
 
   return (
-    <main id="home" className={styles.main}>
+    <main id="home" className={`${styles.main} ${active ? styles.blurBg : ""}`}>
       <Navbar />
 
       {/* HERO SECTION */}
@@ -69,41 +70,90 @@ export default function Home() {
   <div className={styles.profileContainer}>
     <div className={styles.profileBorder}></div>
     <Image
-      src="/profile.jpeg"
+      src="/pro.png"
       alt="Profile Photo"
-      width={300}
-      height={100}
+      width={400}
+      height={500}
       className={styles.profileImage}
     />
   </div>
 
   <div className={styles.intro}>
-    <h1 className={styles.name}>Niranjana K</h1>
-
-    {/* Flipping Roles */}
-    <div className={styles.role}>
-      <div id="flip">
-        <div>
-          <div>Fullstack Developer</div>
-          <div>Frontend Developer</div>
-          <div>Web Developer</div>
-        </div>
-      </div>
-    </div>
-
-    {/* Tagline */}
-    <p className={styles.tagline}>Breaking things to build it better.</p>
+  {/* Tagline */}
+  <h1 className={styles.tagline}><span>FULLSTACK DEVELOPER </span><br />FRONTEND SPECIALIST</h1>
+  <div className={styles.githubStatsContainer}>
+    <h3 className={styles.githubLabel}>GitHub Contribution</h3>
+    <a
+      href="https://github.com/Niranjanakamaraj"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <img
+        src="https://streak-stats.vercel.app/?user=Niranjanakamaraj&theme=dark"
+        alt="GitHub Streak Stats for Niranjanakamaraj"
+      />
+    </a>
   </div>
+</div>
+
 </section>
 
       {/* PERSON SECTION */}
-      <section className={styles.personSection}>
-        <h1 className={styles.personHeading}>The Person <br /> & <br /> The Dev</h1>
-        <div className={styles.personButtons}>
-          <button className={styles.personBtn}>Who I Am ?  →</button>
-          <button className={styles.personBtn}>What I Do  →</button>
+<section className={styles.personSection}>
+  <h1 className={styles.personHeading}>
+    The Person <br /> & <br /> The Dev
+  </h1>
+
+  <div className={styles.personButtons}>
+    <button
+      className={styles.personBtn}
+      onClick={() => setActive("who")}
+    >
+      Who I Am →
+    </button>
+
+    <button
+      className={styles.personBtn}
+      onClick={() => setActive("what")}
+    >
+      What I Do →
+    </button>
+  </div>
+
+  {/* FLAP */}
+  {active && (
+    <div className={styles.flapWrapper}>
+      <div className={styles.flap}>
+        <div className={styles.flapFront}>
+          {active === "who" ? "Who I Am" : "What I Do"}
         </div>
-      </section>
+
+        <div className={styles.flapBack}>
+          <button
+            className={styles.close}
+            onClick={() => setActive(null)}
+          >
+            ✕
+          </button>
+
+          {active === "who" ? (
+            <p>
+              I’m a 3rd-year B.Tech student in Computer Science and Business
+              Systems at Rajalakshmi Institute of Technology, focused on
+              solving real-world problems through web development.
+            </p>
+          ) : (
+            <p>
+              I build modern web experiences using React and Next.js,
+              blending creativity with functionality to deliver scalable,
+              user-focused applications.
+            </p>
+          )}
+        </div>
+      </div>
+    </div>
+  )}
+</section>
 
       {/* TESTIMONIAL SECTION */}
       <section className={styles.testimonialSection}>

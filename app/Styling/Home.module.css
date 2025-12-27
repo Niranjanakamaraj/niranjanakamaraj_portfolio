@@ -8,8 +8,7 @@
   background-color: rgb(255, 255, 255);
   width: 100%;
   display: flex;
-  justify-content: space-between;
-  padding: 6rem 10rem;
+  padding-top: 0rem;
 }
 
 .heroVideo {
@@ -19,7 +18,7 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  opacity: 0.25;
+  opacity: 0.3;
   z-index: 0; /* behind content */
 }
 .profileContainer {
@@ -36,78 +35,47 @@
 .profileImage {
   object-fit: cover;
   position: relative;
-  height: 70vh;
+  height: auto;
   z-index: 10;
 }
 
 .intro {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   z-index: 10;
   gap: 1rem;
-  margin-left: 5rem; 
+  margin-left: 6rem; 
+  margin-top:8rem;
 }
-
-.name {
-  font-size: 4rem; /* text-6xl */
-  font-weight: bold;
-  color: #3a3a3a;
+.tagline span {
+  padding:0px 12px;  
+  font-size: 3rem;
+  border-radius: 6px;
+  color: #000000;
+   text-shadow:
+    1px 1px 0 #000000,
+    2px 2px 0 #ffffff,
+    3px 3px 0 #ffffff; /* gives layered 3D look */
+  transform: perspective(500px) rotateX(1deg) rotateY(-1deg)
 }
-
-.role {
-  font-size: 4rem;
-  color: #3a3a3a;
-  height: 4.5rem; /* height of one text */
-  overflow: hidden;
-  position: relative;
-  margin-top: 1rem;
-}
-
-#flip {
-  display: inline-block;
-}
-
-#flip > div {
-  display: flex;
-  flex-direction: column; /* stack texts vertically */
-  animation: flipAnim 6s ease-in-out infinite;
-}
-
-#flip > div > div {
-  height: 4.5rem;
-  display: flex;
-  align-items: center;
-  padding: 0 12px;
-  color: #fff;
-  font-size: 4rem;
-  font-weight: bold;
-  background-color: #4ec7f3;
-  text-transform: uppercase;
-  margin-bottom: 4.5rem;
-}
-
-#flip > div > div:nth-child(2) {
-  background-color: #42c58a;
-}
-
-#flip > div > div:nth-child(3) {
-  background-color: #DC143C;
-}
-
-/* Keyframes for smooth flipping */
-@keyframes flipAnim {
-  0%, 33% { transform: translateY(0); }
-  34%, 66% { transform: translateY(-4.5rem); }
-  67%, 99.99% { transform: translateY(-9rem); }
-  100% { transform: translateY(0); }
-}
-
 .tagline {
-  font-size: 1.5rem;
-  font-weight: 500;
-  color: #3a3a3a;
-  margin-top: 1.5rem;
+  font-size:2rem;
+  font-weight: 800;
+  padding:0rem 4rem;  
+  text-align: center;
+  border-radius: 6px;
+  color: #ffffff;
+  text-shadow:
+    1px 1px 0 #000000,
+    2px 2px 0 #000000,
+    3px 3px 0 #000000; /* gives layered 3D look */
+  transform: perspective(500px) rotateX(1deg) rotateY(-1deg);
+}
+.name {
+  font-size: 2rem;
+  margin-top: 4rem;
+  font-weight: 800;
+  color: #2b2b2b;
 }
 
 /* ---------------- PERSON SECTION ---------------- */
@@ -144,50 +112,6 @@
   border-radius: 7px;
   border: none;
   font-weight: 600;
-}
-
-/* ---------------- JOURNEY SECTION ---------------- */
-
-.journeySection {
-  width: 100%;
-  background: #fff;
-  padding: 4rem 0;
-}
-
-.journeyHeader {
-  width: 100%;
-  padding-left: 3rem;
-}
-
-.journeyBtn {
-  background: #202020;
-  color: #fff;
-  padding: 1rem 2rem;
-  font-size: 1.8rem;
-  font-weight: 700;
-  border: none;
-}
-
-.journeyContent {
-  width: 100%;
-  padding: 4rem 6rem;
-}
-
-.journeyBlock {
-  margin-bottom: 4rem;
-}
-
-.journeyTitle {
-  font-size: 4rem;
-  font-weight: 800;
-  color: #444;
-}
-
-.journeyDesc {
-  margin-top: 0.5rem;
-  font-size: 1rem;
-  color: #4b4b4b;
-  letter-spacing: 1px;
 }
 
 .blogsSection {
@@ -269,47 +193,6 @@
   margin-bottom: 3rem;
 }
 
-#flip {
-  height: 45px; /* height of one text */
-  overflow: hidden; /* hide the overflow */
-}
-
-#flip > div {
-  display: flex;
-  flex-direction: column; /* stack texts vertically */
-  animation: show 5s ease-in-out infinite;
-}
-
-#flip > div > div {
-  height: 45px;
-  display: flex;
-  align-items: center;
-  padding: 0 12px;
-  color: var(--text-white);
-  font-size: 4rem; /* match your hero size */
-  font-weight: bold;
-  background: var(--brand-blue);
-}
-
-#flip > div > div:nth-child(2) {
-  background: var(--brand-teal);
-}
-
-/* Keyframes: pause on each text, then flip smoothly */
-@keyframes show {
-  0%,
-  40% {
-    transform: translateY(0);
-  } /* first text pause */
-  50%,
-  90% {
-    transform: translateY(-45px);
-  } /* second text pause */
-  100% {
-    transform: translateY(0);
-  } /* loop back */
-}
-
 .testimonialGrid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -380,4 +263,96 @@
 .contactCtaBtn:hover {
   background: #3a3a3a;
   transform: translateY(-3px);
+}
+
+/* FLAP */
+.flapWrapper {
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(6px);
+}
+
+.flap {
+  width: min(420px, 90%);
+  height: 240px;
+  position: relative;
+  transform-style: preserve-3d;
+  animation: flipOpen 0.9s cubic-bezier(.74,.06,.4,.92) forwards;
+}
+
+.flapFront,
+.flapBack {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backface-visibility: hidden;
+}
+
+.flapFront {
+  background: #111;
+  border: 2px solid #ffb510;
+  color: #fff;
+  font-weight: 600;
+}
+
+.flapBack {
+  background: #fff;
+  color: #111;
+  padding: 2rem;
+  transform: rotateX(180deg);
+  text-align: left;
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  border: none;
+  background: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+@keyframes flipOpen {
+  from {
+    transform: rotateX(0deg);
+  }
+  to {
+    transform: rotateX(180deg);
+  }
+}
+.githubStatsContainer {
+  margin-top: 5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* centers label + image */
+  gap: 0.5rem;
+}
+
+.githubLabel {
+  font-size: 1.2rem;
+  background-color: #1e1d1de7;
+  padding:0px 12px;  
+  border-radius: 6px;
+  color: #ffffff; /* or match your hero section text */
+  font-weight: 500;
+  text-align: center;
+}
+
+.githubStatsContainer img {
+  border-radius: 12px;
+  background-color: #1b1b1b !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s;
+}
+
+.githubStatsContainer img:hover {
+  transform: translateY(-5px);
 }
