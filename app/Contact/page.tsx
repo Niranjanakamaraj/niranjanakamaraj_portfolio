@@ -6,7 +6,7 @@ import styles from "../Styling/Contact.module.css";
 import emailjs from "@emailjs/browser";
 
 export default function Contact() {
-   const form = useRef(null);
+  const form = useRef<HTMLFormElement>(null);
 
   const sendEmail = (e: React.FormEvent) => {
     e.preventDefault();

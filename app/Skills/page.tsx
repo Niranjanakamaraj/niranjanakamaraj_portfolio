@@ -39,8 +39,9 @@ export default function Skills() {
     { img: "/Canva.png", name: "Canva" },
   ];
 
-  // Helper function to duplicate arrays for seamless scroll
-  const duplicateArray = (arr, times) => Array(times).fill(arr).flat();
+  function duplicateArray<T>(arr: T[], times: number): T[] {
+  return Array(times).fill(arr).flat();
+}
 
   return (
     <main className={styles.skillsMain}>

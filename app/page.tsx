@@ -29,20 +29,27 @@ const testimonials = [
 ];
 
 export default function Home() {
-  const [posts, setPosts] = useState([]);
+  const [posts, setPosts] = useState<Post[]>([]);
   const [active, setActive] = useState<null | "who" | "what">(null);
-
+  interface Post {
+  title: string;
+  slug: string;
+  coverImage?: string;
+  hostname?: string;
+}
   useEffect(() => {
   async function loadPosts() {
     try {
       const postsCFG = await fetchPosts("mycodeforgood2025.hashnode.dev");
       const postsAP = await fetchPosts("ap-police-hackathon.hashnode.dev");
 
-      const combined = [
-        ...postsCFG.map(post => ({ ...post, hostname: "mycodeforgood2025.hashnode.dev" })),
-        ...postsAP.map(post => ({ ...post, hostname: "ap-police-hackathon.hashnode.dev" })),
-      ];
+const postsCFGTyped: Post[] = postsCFG;
+const postsAPTyped: Post[] = postsAP;
 
+const combined = [
+  ...postsCFGTyped.map(post => ({ ...post, hostname: "mycodeforgood2025.hashnode.dev" })),
+  ...postsAPTyped.map(post => ({ ...post, hostname: "ap-police-hackathon.hashnode.dev" })),
+];
       setPosts(combined);
     } catch (err) {
       console.error("Error fetching posts:", err);
