@@ -45,13 +45,11 @@ export default function Hackathon() {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
-        variants={fadeLeft}
         whileHover="hover"
       >
         <div className={styles.hackathonWrapper}>
           <motion.div
             className={styles.hackathonImageBox}
-            variants={fadeLeft}
           >
             <img
               src="/jp.jpg"
@@ -67,7 +65,7 @@ export default function Hackathon() {
               View GitHub
             </motion.a>
           </motion.div>
-          <motion.div className={styles.hackathonInfo} variants={fadeRight}>
+          <motion.div className={styles.hackathonInfo}>
             <h3>JPMorgan Chase – Code for Good 2025</h3>
             <p><b>Built for:</b> Renu Kiran Foundation</p>
             <p><b>Team Size:</b> 6 · 24-hour Hackathon · July 2025</p>
@@ -91,13 +89,11 @@ export default function Hackathon() {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
-        variants={fadeRight}
         whileHover="hover"
       >
         <div className={`${styles.hackathonWrapper} ${styles.reverse}`}>
           <motion.div
             className={styles.hackathonImageBox}
-            variants={fadeRight}
           >
             <img
               src="/shell.png"
@@ -113,7 +109,7 @@ export default function Hackathon() {
               View GitHub
             </motion.a>
           </motion.div>
-          <motion.div className={styles.hackathonInfo} variants={fadeLeft}>
+          <motion.div className={styles.hackathonInfo}>
             <h3>Shell AI Hackathon 2025 – Pre-Finalist</h3>
             <p><b>Built for:</b> Energy Optimization Use Case</p>
             <p><b>Team Size:</b> 3 · August 2025</p>
@@ -135,12 +131,10 @@ export default function Hackathon() {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
-        variants={fadeLeft}
       >
         <div className={styles.hackathonWrapper}>
           <motion.div
             className={styles.hackathonImageBox}
-            variants={fadeLeft}
           >
             <img
               src="/ap.jpg"
@@ -156,7 +150,7 @@ export default function Hackathon() {
               View GitHub
             </motion.a>
           </motion.div>
-          <motion.div className={styles.hackathonInfo} variants={fadeRight}>
+          <motion.div className={styles.hackathonInfo}>
             <h3>AI for Andhra Pradesh Police Hackathon</h3>
             <p><b>Built for:</b> Andhra Pradesh Police Department</p>
             <p><b>Team Size:</b> 4 · 36-hour Hackathon · June 2025</p>
@@ -178,13 +172,11 @@ export default function Hackathon() {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
-        variants={fadeRight}
         whileHover="hover"
       >
         <div className={`${styles.hackathonWrapper} ${styles.reverse}`}>
           <motion.div
             className={styles.hackathonImageBox}
-            variants={fadeRight}
           >
             <img
               src="/gdg.png"
@@ -200,7 +192,7 @@ export default function Hackathon() {
               View GitHub
             </motion.a>
           </motion.div>
-          <motion.div className={styles.hackathonInfo} variants={fadeLeft}>
+          <motion.div className={styles.hackathonInfo}>
             <h3>GDG On-Campus Solution Challenge 2025</h3>
             <p><b>Built for:</b> AI-driven Healthcare Research</p>
             <p><b>Team Size:</b> 4 · January 2025</p>

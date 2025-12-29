@@ -34,7 +34,7 @@ export default function Contact() {
 
   const fadeInUp = {
     hidden: { opacity: 0, y: 30 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1], } },
     hover: { scale: 1.05, transition: { duration: 0.2 } },
   };
 
@@ -48,8 +48,6 @@ export default function Contact() {
           <motion.div
             className={styles.contactImageBox}
             initial="hidden"
-            whileInView="visible"
-            variants={fadeInUp}
             viewport={{ once: true }}
           >
             <img
@@ -64,7 +62,6 @@ export default function Contact() {
             className={styles.contactInfo}
             initial="hidden"
             whileInView="visible"
-            variants={fadeInUp}
             viewport={{ once: true }}
           >
             <motion.a

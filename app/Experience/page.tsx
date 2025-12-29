@@ -65,7 +65,6 @@ const Experience = () => {
           <motion.div
             className={Styles.card}
             custom={idx}
-            variants={cardVariant}
             initial="hidden"
             whileInView="visible"
             whileHover="hover"

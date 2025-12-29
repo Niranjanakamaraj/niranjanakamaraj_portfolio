@@ -356,3 +356,47 @@
 .githubStatsContainer img:hover {
   transform: translateY(-5px);
 }
+
+/* HERO – profile image micro-elevation */
+.profileContainer {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.profileContainer:hover {
+  transform: translateY(-4px);
+}
+
+.personBtn,
+.sendBtn,
+.downloadBtn,
+.gitButton,
+.contactCtaBtn {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.personBtn:hover,
+.sendBtn:hover,
+.downloadBtn:hover,
+.gitButton:hover,
+.contactCtaBtn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 22px rgba(0,0,0,0.18);
+}
+
+.blogItem {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.blogItem:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 34px rgba(0,0,0,0.22);
+}
+
+.testimonialCard {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.testimonialCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 26px rgba(0,0,0,0.18);
+}

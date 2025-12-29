@@ -134,3 +134,36 @@
   display: inline-block;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
 }
+
+/* =========================
+   BUTTON & ICON HOVER FX
+   ========================= */
+
+/* Primary CTA buttons (Send + Download) */
+.sendBtn,
+.downloadBtn {
+  transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+}
+
+.sendBtn:hover,
+.downloadBtn:hover {
+  transform: translateY(-2px);
+  opacity: 0.95;
+}
+
+/* Button press feedback */
+.sendBtn:active,
+.downloadBtn:active {
+  transform: translateY(0);
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Social icons */
+.socialIcons img {
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.socialIcons img:hover {
+  transform: translateY(-3px) scale(1.05);
+  opacity: 0.85;
+}
