@@ -2,6 +2,7 @@
 import React, { useState,useRef,useEffect } from "react";
 import Navbar from "../components/Navbar";
 import Styles from "../Styling/Projects.module.css";
+import { title } from "process";
 const YOUTUBE_MAP: Record<string, string> = {
   "QR CODE GENERATOR": "4BTND3whjg8",
   "WEBPAGE TRANSLATOR": "mWe8x-aHdj0",
@@ -134,7 +135,23 @@ const PROJECTS = [
     title: "Fuel Blend Predictor",
     desc: "AI-powered platform for sustainable fuel blend prediction, achieving 85\%+ model accuracy in optimizing energy efficiency by enabling users to analyze, compare, and select optimal fuel blends",
     videoId: "2JFzt423hUU",
-  }];
+  },
+  {
+    title:"Nexadrug",
+    desc:"Built a responsive React interface supporting real-time molecular insights for AI-sriven drug comparison and interaction analysis ",
+    videoId:"sera29B4LFQ"
+  },
+   {
+    title: "College Cultural Fest Website",
+    desc: "Developed and deployed an event portal for listings, participants registration, supporting live updates handling 500+ users ",
+    videoId: "Hg9YuqA-hxQ",
+  },
+  {
+    title: "AI Investigation Assistant",
+    desc: "An AI-powered investigative assistant that streamlines data analysis and report generation for law enforcement agencies, enhancing efficiency and accuracy in case management.",
+    videoId: "xXxV4GSrcyU",
+  },
+];
 const Projects: React.FC = () => {
   const [activeTool, setActiveTool] = useState<null | {
     title: string;
@@ -196,36 +213,35 @@ const trackRefs = useRef<HTMLDivElement[]>([]);
       {/* Projects Section */}
     <section>
   <h2 className={Styles.heading}>Projects</h2>
-  <div className={Styles.grid}>
-    {PROJECTS.map((project, idx) => (
-      <div className={Styles.card} key={idx}>
-        <div className={Styles.videoWrapper}>
-          <iframe
-  src={`https://www.youtube.com/embed/${project.videoId}?autoplay=1&mute=1&rel=0`}
-  title={project.title}
-  frameBorder="0"
-  allow="autoplay; encrypted-media; picture-in-picture"
-  allowFullScreen
-/>
-        </div>
-        <div className={Styles.cardMeta}>
-          <h3 className={Styles.cardTitle}>{project.title}</h3>
-          <button
-            className={Styles.explore}
-            onClick={() =>
-              setActiveTool({
-                title: project.title,
-                desc: project.desc,
-                video: project.videoId,
-              })
-            }
-          >
-            Explore <span>&gt;</span>
-          </button>
-        </div>
+  <div className={`${Styles.projectsGrid}`}>
+  {PROJECTS.map((project, idx) => (
+    <div className={`${Styles.projectCard}`} key={idx}>
+      <div className={Styles.videoWrapper}>
+        <iframe
+          src={`https://www.youtube.com/embed/${project.videoId}?autoplay=1&mute=1&rel=0`}
+          title={project.title}
+          allow="autoplay; encrypted-media; picture-in-picture"
+          allowFullScreen
+        />
       </div>
-    ))}
-  </div>
+      <div className={Styles.cardMeta}>
+        <h3 className={Styles.cardTitle}>{project.title}</h3>
+        <button
+          className={Styles.explore}
+          onClick={() =>
+            setActiveTool({
+              title: project.title,
+              desc: project.desc,
+              video: project.videoId,
+            })
+          }
+        >
+          Explore <span>&gt;</span>
+        </button>
+      </div>
+    </div>
+  ))}
+</div>
       </section>
       <h2 className={Styles.heading}>Utility Tools</h2>
 
