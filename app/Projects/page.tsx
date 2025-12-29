@@ -201,8 +201,8 @@ const trackRefs = useRef<HTMLDivElement[]>([]);
       <div className={Styles.card} key={idx}>
         <div className={Styles.videoWrapper}>
           <iframe
-  src={`https://www.youtube.com/embed/${activeTool.video}?autoplay=1&rel=0`}
-  title={activeTool.title}
+  src={`https://www.youtube.com/embed/${project.videoId}?autoplay=1&mute=1&rel=0`}
+  title={project.title}
   frameBorder="0"
   allow="autoplay; encrypted-media; picture-in-picture"
   allowFullScreen
