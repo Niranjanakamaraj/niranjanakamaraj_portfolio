@@ -218,11 +218,11 @@ const trackRefs = useRef<HTMLDivElement[]>([]);
     <div className={`${Styles.projectCard}`} key={idx}>
       <div className={Styles.videoWrapper}>
         <iframe
-          src={`https://www.youtube.com/embed/${project.videoId}?autoplay=1&mute=1&rel=0`}
-          title={project.title}
-          allow="autoplay; encrypted-media; picture-in-picture"
-          allowFullScreen
-        />
+  src={`https://www.youtube.com/embed/${project.videoId}?autoplay=1&mute=1&rel=0&loop=1&playlist=${project.videoId}`}
+  title={project.title}
+  allow="autoplay; encrypted-media; picture-in-picture"
+  allowFullScreen
+/>
       </div>
       <div className={Styles.cardMeta}>
         <h3 className={Styles.cardTitle}>{project.title}</h3>
