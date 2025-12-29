@@ -9,7 +9,7 @@ const YOUTUBE_MAP: Record<string, string> = {
   "SCREENSHOT TO TEXT CONVERTOR": "79euFO7UFsE",
   "TEXT TO SPEECH CONVERTER": "_37io7WNYO4",
   "URL SHORTENER": "Artt3fTUUHg", 
-  "PASSWORD STRENGTH CHECKER": "P3pX4bX5x5A",
+  "PASSWORD STRENGTH CHECKER": "TsoXCxhdhvc",
   "COLOR CONTRAST TESTER": "LbTLAGboeQU",
   "BOOKBUDDY": "a1A_aaYuFUw",
   "CRYPTOPEEK": "HlFUlVfy3OQ",
@@ -129,7 +129,12 @@ const tools = [
 const rows = 3;
 const SPEEDS = [0.5, 0.35, 0.45];
 const cardsPerRow = Math.ceil(tools.length / rows);
-
+const PROJECTS = [
+  {
+    title: "Fuel Blend Predictor",
+    desc: "AI-powered platform for sustainable fuel blend prediction, achieving 85\%+ model accuracy in optimizing energy efficiency by enabling users to analyze, compare, and select optimal fuel blends",
+    videoId: "2JFzt423hUU",
+  }];
 const Projects: React.FC = () => {
   const [activeTool, setActiveTool] = useState<null | {
     title: string;
@@ -188,6 +193,40 @@ const trackRefs = useRef<HTMLDivElement[]>([]);
   return (
     <section className={Styles.container}>
       <Navbar />
+      {/* Projects Section */}
+    <section>
+  <h2 className={Styles.heading}>Projects</h2>
+  <div className={Styles.grid}>
+    {PROJECTS.map((project, idx) => (
+      <div className={Styles.card} key={idx}>
+        <div className={Styles.videoWrapper}>
+          <iframe
+  src={`https://www.youtube.com/embed/${activeTool.video}?autoplay=1&rel=0`}
+  title={activeTool.title}
+  frameBorder="0"
+  allow="autoplay; encrypted-media; picture-in-picture"
+  allowFullScreen
+/>
+        </div>
+        <div className={Styles.cardMeta}>
+          <h3 className={Styles.cardTitle}>{project.title}</h3>
+          <button
+            className={Styles.explore}
+            onClick={() =>
+              setActiveTool({
+                title: project.title,
+                desc: project.desc,
+                video: project.videoId,
+              })
+            }
+          >
+            Explore <span>&gt;</span>
+          </button>
+        </div>
+      </div>
+    ))}
+  </div>
+      </section>
       <h2 className={Styles.heading}>Utility Tools</h2>
 
       <div className={Styles.grid}>
