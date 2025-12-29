@@ -193,3 +193,40 @@
     transform: translateX(0);
   }
 }
+
+/* =========================
+   RESPONSIVE MOBILE
+   ========================= */
+@media (max-width: 900px) {
+  .title { margin-top: 4rem; font-size: 22px; padding: 8px 16px; }
+  .subtitle { font-size: 16px; }
+
+  .categoryTitle { font-size: 18px; padding: 8px 0; }
+  .skillCard { width: 90px; height: 90px; }
+  .skillName { font-size: 11px; }
+
+  /* Remove split on mobile - stack all blocks */
+  .splitCategory {
+    flex-direction: column;
+  }
+  .splitBlock {
+    width: 100% !important;
+    margin-bottom: 15px;
+  }
+
+  /* Adjust scroll speed and gaps for mobile */
+  .grid,
+  .scrollRow,
+  .scrollRight { animation-duration: 50s; gap: 15px; }
+}
+.footer {
+  width:90vw;
+  color: rgb(0, 0, 0);
+  text-align: center;
+  padding: 8px 22px;
+  border-top: #222222 solid 4px;
+  border-bottom: #222222 solid 4px;
+  font-size: 1.6rem;
+  font-weight: 600;
+  margin-top: 50px;
+}

@@ -400,3 +400,166 @@
   transform: translateY(-4px);
   box-shadow: 0 12px 26px rgba(0,0,0,0.18);
 }
+
+/* ---------------- MOBILE RESPONSIVENESS ---------------- */
+@media (max-width: 768px) {
+
+  /* HERO SECTION */
+  .heroSection {
+    flex-direction: column;
+    padding-top: 3rem;
+    gap: 2rem;
+  }
+
+  .intro {
+    margin-left: 0;
+    margin-top: 6rem !important;
+    align-items: center;
+    text-align: center;
+    gap: 2rem;
+    padding: 0 1rem;
+  }
+
+  .tagline span {
+    font-size: 1.3rem;
+    padding: 0 6px;
+  }
+
+  .tagline {
+    font-size: 1.2rem;
+    padding: 0 1rem;
+  }
+
+  .githubStatsContainer {
+  padding-bottom: 4rem;
+  }
+
+  /* PERSON SECTION */
+  .personHeading {
+    font-size: 5rem;
+  }
+
+  .personButtons {
+    flex-direction: row;
+    top: 25vh;
+    left: 50%;
+    transform: translateX(-50%);
+    gap: 5rem;
+  }
+
+  .personBtn {
+    font-size: 0.5rem;
+    padding: 0.8rem 2rem;
+  }
+
+  /* TESTIMONIALS */
+  .testimonialGrid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .testimonialTitle {
+    font-size: 2rem;
+    padding: 0.5rem 1rem;
+  }
+
+  /* BLOGS */
+  .blogsGrid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .blogsTitle {
+    font-size: 2rem;
+    padding: 0.5rem 1rem;
+  }
+
+  .blogHeading {
+    font-size: 1.5rem;
+  }
+
+  .blogDesc {
+    font-size: 0.8rem;
+  }
+
+  /* CONTACT CTA */
+  .contactCtaTitle {
+    font-size: 2rem;
+  }
+
+  .contactCtaDesc {
+    font-size: 1rem;
+    padding: 0 1rem;
+  }
+
+  .contactCtaBtn {
+    font-size: 1rem;
+    padding: 0.8rem 2rem;
+  }
+
+  /* FLAP */
+  .flap {
+    width: 90%;
+    height: 100%;
+  }
+
+  .flapBack {
+    padding: 1rem;
+    width: 100%;
+    height:max-content;
+  }
+
+  /* GITHUB STATS */
+  .githubStatsContainer img {
+    width: 200px;
+  }
+}
+
+/* HIDE PROFILE PHOTO ON MOBILE */
+@media (max-width: 768px) {
+  .profileContainer,
+  .profileBorder,
+  .profileImage {
+    display: none !important;
+  }
+
+  .intro {
+    margin-left: 0;
+    margin-top: 2rem;
+    align-items: center;
+    text-align: center;
+    gap: 1rem;
+    padding: 0 1rem;
+  }
+}
+
+/* FLAP RESPONSIVE */
+@media (max-width: 768px) {
+  .flapWrapper {
+    padding: 1rem;
+  }
+
+  .flap {
+    width: 90%;
+    max-width: 350px;
+    height: auto;
+    padding: 1rem;
+  }
+
+  .flapBack {
+    padding: 1rem;
+    font-size: 0.9rem;
+    line-height: 1.4;
+  }
+
+  .flapFront {
+    font-size: 1.2rem;
+    padding: 0.5rem 1rem;
+  }
+
+  .close {
+    font-size: 1rem;
+    top: 8px;
+    right: 8px;
+  }
+}
