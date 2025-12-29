@@ -4,6 +4,7 @@ import Image from "next/image";
 import Navbar from "../components/Navbar";
 import styles from "../Styling/Contact.module.css";
 import emailjs from "@emailjs/browser";
+import { motion } from "framer-motion";
 
 export default function Contact() {
   const form = useRef<HTMLFormElement>(null);
@@ -13,10 +14,10 @@ export default function Contact() {
 
     emailjs
       .sendForm(
-        "service_61va293",         // your EmailJS service ID
-        "template_cl3zwun",        // your EmailJS template ID
+        "service_61va293",
+        "template_cl3zwun",
         form.current!,
-        "AKz1rwebR7GOZUsgM"     // your EmailJS public key
+        "AKz1rwebR7GOZUsgM"
       )
       .then(
         (result) => {
@@ -30,68 +31,115 @@ export default function Contact() {
         }
       );
   };
-  
+
+  const fadeInUp = {
+    hidden: { opacity: 0, y: 30 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
+    hover: { scale: 1.05, transition: { duration: 0.2 } },
+  };
+
   return (
     <main className={styles.main}>
       <Navbar />
 
       <section className={styles.contactSection}>
         <div className={styles.contactWrapper}>
-
           {/* LEFT – PROFILE IMAGE */}
-          <div className={styles.contactImageBox}>
+          <motion.div
+            className={styles.contactImageBox}
+            initial="hidden"
+            whileInView="visible"
+            variants={fadeInUp}
+            viewport={{ once: true }}
+          >
             <img
               src="/contact.jpg"
               alt="Profile"
               className={styles.contactImage}
             />
-          </div>
+          </motion.div>
+
           {/* RIGHT – TEXT + FORM + SOCIALS */}
-          <div className={styles.contactInfo}>
-            <h1 className={styles.title}>Let's Connect</h1>
+          <motion.div
+            className={styles.contactInfo}
+            initial="hidden"
+            whileInView="visible"
+            variants={fadeInUp}
+            viewport={{ once: true }}
+          >
+            <motion.a
+              href="https://www.linkedin.com/in/niranjanakamaraj/"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ textDecoration: "none", color: "inherit" }}
+              whileHover={{ scale: 1.05, color: "#0A66C2" }}
+              transition={{ duration: 0.2 }}
+            >
+              <h1 className={styles.title}>Let's Connect</h1>
+            </motion.a>
+
             <h3 className={styles.contactName}>Niranjana K</h3>
             <p className={styles.contactMail}>niranjanakamaaraj03@gmail.com</p>
-            <form ref={form} onSubmit={sendEmail} className={styles.contactForm}>
-  Name<input type="text" name="name" className={styles.inputField} />
-  Email<input type="email" name="email" className={styles.inputField} />
-  Message<textarea name="message" className={styles.inputField}></textarea>
-  <button type="submit" className={styles.sendBtn}>Send &#9993;</button>
-</form>
+
+            <form
+              ref={form}
+              onSubmit={sendEmail}
+              className={styles.contactForm}
+            >
+              Name
+              <input type="text" name="name" className={styles.inputField} />
+              Email
+              <input
+                type="email"
+                name="email"
+                className={styles.inputField}
+              />
+              Message
+              <textarea
+                name="message"
+                className={styles.inputField}
+              ></textarea>
+
+              <motion.button
+                type="submit"
+                className={styles.sendBtn}
+                whileHover={{ scale: 1.05}}
+                transition={{ duration: 0.2 }}
+              >
+                Send &#9993;
+              </motion.button>
+            </form>
+
             <div className={styles.socialIcons}>
-  <a
-    href="https://www.linkedin.com/in/niranjanakamaraj/"
-    target="_blank"
-    rel="noopener noreferrer"
-    aria-label="LinkedIn"
-  >
-    <img src="/linkedin.png" alt="LinkedIn" />
-  </a>
+              {[
+                { href: "https://www.linkedin.com/in/niranjanakamaraj/", src: "/linkedin.png", alt: "LinkedIn" },
+                { href: "https://github.com/Niranjanakamaraj", src: "/github.png", alt: "GitHub" },
+                { href: "mailto:niranjanakamaraj03@gmail.com", src: "/email.png", alt: "Email" },
+              ].map((icon, i) => (
+                <motion.a
+                  key={i}
+                  href={icon.href}
+                  target={icon.href.startsWith("mailto:") ? "_self" : "_blank"}
+                  rel="noopener noreferrer"
+                  aria-label={icon.alt}
+                  whileHover={{ scale: 1.1, rotate: 5 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <img src={icon.src} alt={icon.alt} />
+                </motion.a>
+              ))}
 
-  <a
-    href="https://github.com/Niranjanakamaraj"
-    target="_blank"
-    rel="noopener noreferrer"
-    aria-label="GitHub"
-  >
-    <img src="/github.png" alt="GitHub" />
-  </a>
-
-  <a
-    href="mailto:niranjanakamaraj03@gmail.com"
-    aria-label="Email"
-  >
-    <img src="/email.png" alt="Email" />
-  </a>
-
-            <a
-  href="/K_Niranjana_resume.pdf"
-  download="K_Niranjana_resume.pdf"
-  className={styles.downloadBtn}
->
-  Download Resume
-</a>       
-          </div>
-        </div>
+              <motion.a
+                href="/K_Niranjana_resume.pdf"
+                download="K_Niranjana_resume.pdf"
+                className={styles.downloadBtn}
+                whileHover={{ scale: 1.05, boxShadow: "0 6px 15px rgba(0,0,0,0.2)" }}
+                transition={{ duration: 0.2 }}
+              >
+                Download Resume
+              </motion.a>
+            </div>
+          </motion.div>
         </div>
       </section>
     </main>

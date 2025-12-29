@@ -9,6 +9,7 @@
 }
 
 .sectionTitle {
+  margin-top: 4rem !important;
   text-align: center;
   font-size: 2rem;
   padding: 10px 28px;
